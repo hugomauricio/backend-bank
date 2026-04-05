@@ -1,0 +1,56 @@
+# =========================
+# General
+# =========================
+*.log
+*.tmp
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# =========================
+# Java / Gradle
+# =========================
+.gradle/
+build/
+out/
+target/
+
+# Si algún micro genera jars localmente
+*.jar
+!gradle-wrapper.jar
+
+# =========================
+# IntelliJ / VS Code / Eclipse
+# =========================
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# =========================
+# OS / editor files
+# =========================
+coverage/
+bin/
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Docker
+# =========================
+docker-data/
+postgres_data/
+
+# =========================
+# Test / reports
+# =========================
+test-output/
+reports/

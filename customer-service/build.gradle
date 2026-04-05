@@ -1,0 +1,85 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '4.0.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.openapi.generator' version '7.6.0'
+}
+
+group = 'com.customer_service'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:3.0.2'
+
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+	runtimeOnly 'org.postgresql:postgresql'
+
+	implementation 'org.mapstruct:mapstruct:1.6.3'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-webflux-test'
+	testImplementation 'io.projectreactor:reactor-test'
+
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+	testAnnotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	testImplementation 'org.testcontainers:junit-jupiter:1.21.3'
+	testImplementation 'org.testcontainers:postgresql:1.21.3'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+openApiGenerate {
+	generatorName = 'spring'
+	inputSpec = "$projectDir/src/main/resources/openapi.yaml"
+	outputDir = "$buildDir/generated"
+	apiPackage = 'com.bank.customer.generated.api'
+	modelPackage = 'com.bank.customer.generated.model'
+	invokerPackage = 'com.bank.customer.generated.invoker'
+	configOptions = [
+			reactive             : 'true',
+			interfaceOnly        : 'true',
+			useSpringBoot3       : 'true',
+			useTags              : 'true',
+			dateLibrary          : 'java8',
+			performBeanValidation: 'true',
+			serializableModel    : 'true',
+			openApiNullable      : 'false'
+	]
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir "$buildDir/generated/src/main/java"
+		}
+	}
+}
+
+tasks.named('compileJava') {
+	dependsOn tasks.named('openApiGenerate')
+}
