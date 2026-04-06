@@ -1,5 +1,5 @@
 --
--- PostgreSQL database dump ajustado para Docker init
+-- PostgreSQL database dump ajustado para Docker init test
 --
 
 SET statement_timeout = 0;
