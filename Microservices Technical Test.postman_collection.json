@@ -1,0 +1,774 @@
+{
+  "info": {
+    "_postman_id": "b571d88a-3bc5-4e3c-b71b-055d9c5455c3",
+    "name": "Microservices Technical Test",
+    "description": "Postman collection for customer-service and account-service. Includes CRUD for customers, accounts, movements, and customer report endpoint.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "5367186"
+  },
+  "item": [
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "Create Customer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jose Lema\",\n  \"gender\": \"MALE\",\n  \"identification\": \"1234567890\",\n  \"address\": \"Otavalo sn y principal\",\n  \"phone\": \"098254785\",\n  \"password\": \"1234\",\n  \"status\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/v1/customers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v1",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Customers",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/v1/customers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Customer By Id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/v1/customers/73",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v1",
+                "customers",
+                "73"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Customer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jose Lema Updated\",\n  \"gender\": \"MALE\",\n  \"identification\": \"1234567891\",\n  \"address\": \"Quito\",\n  \"phone\": \"099999999\",\n  \"password\": \"5678\",\n  \"status\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/v1/customers/73",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v1",
+                "customers",
+                "73"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Customer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/v1/customers/73",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v1",
+                "customers",
+                "73"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "Create Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"number\": \"4787580\",\n  \"type\": \"SAVINGS\",\n  \"initialBalance\": 2000.0,\n  \"status\": true,\n  \"customerId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/v1/accounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Accounts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/v1/accounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Account By Id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/v1/accounts/56",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "56"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"number\": \"4787587\",\n  \"type\": \"CURRENT\",\n  \"initialBalance\": 300.0,\n  \"status\": true,\n  \"customerId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/v1/accounts/56",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "56"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/v1/accounts/56",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "56"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Movements",
+      "item": [
+        {
+          "name": "Create Credit Movement",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": 53,\n  \"type\": \"CREDIT\",\n  \"value\": 500.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/v1/movements",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "movements"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Debit Movement",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": 53,\n  \"type\": \"DEBIT\",\n  \"value\": 100.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/v1/movements",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "movements"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Movements",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/v1/movements",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "movements"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Movement By Id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/v1/movements/26",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "movements",
+                "26"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Get Customer Account Report",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/v1/reports/1?startDate=2026-04-05&endDate=2026-04-06",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "reports",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2026-04-05"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2026-04-06"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Negative Cases",
+      "item": [
+        {
+          "name": "Create Duplicate Customer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Otro Cliente\",\n  \"gender\": \"MALE\",\n  \"identification\": \"1234567890\",\n  \"address\": \"Quito\",\n  \"phone\": \"099999999\",\n  \"password\": \"5678\",\n  \"status\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/v1/customers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v1",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Debit Movement With Insufficient Balance",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": 1,\n  \"type\": \"DEBIT\",\n  \"value\": 999999.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/v1/movements",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v1",
+                "movements"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Non Existing Customer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/v1/customers/999999",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v1",
+                "customers",
+                "999999"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

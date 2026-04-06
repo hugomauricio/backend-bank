@@ -9,6 +9,9 @@ backend-bank/
 ├── .gitignore
 ├── README.md
 ├── docker-compose.yml
+├── openapi-account-service.yml
+├── openapi-customer-service.yml
+├── Microservices Technical Test.postman_collection.json
 ├── db/
 │   └── BaseDatos.sql
 ├── account-service/
